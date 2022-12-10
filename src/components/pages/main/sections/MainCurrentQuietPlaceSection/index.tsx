@@ -5,7 +5,7 @@ import {
   StyledMainCurrentQuietPlaceSection,
 } from "components/pages/main/sections/MainCurrentQuietPlaceSection/styles";
 import { MOCKUP_PLACES_PAGE_1 } from "mockups/places";
-import { usePlacesContext } from "pages/contexts/PlacesContext";
+import { usePlacesContext } from "components/pages/contexts/PlacesContext";
 import { Place } from "types/api";
 
 function MainCurrentQuietPlaceSection() {

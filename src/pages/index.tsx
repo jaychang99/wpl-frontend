@@ -2,7 +2,7 @@ import PageLayout from "components/common/PageLayout";
 import MainCurrentQuietPlaceSection from "components/pages/main/sections/MainCurrentQuietPlaceSection";
 import MainHeroSection from "components/pages/main/sections/MainHeroSection";
 import type { GetServerSideProps, NextPage } from "next";
-import { PlacesProvider } from "pages/contexts/PlacesContext";
+import { PlacesProvider } from "components/pages/contexts/PlacesContext";
 import { Place } from "types/api";
 import { getServerAxiosErrorInfo, serverAxios } from "utils/commonAxios";
 import getNavbarServerSideProps from "utils/getServerSideProps";
