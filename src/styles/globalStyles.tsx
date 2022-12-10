@@ -6,8 +6,16 @@ const globalStyles = (theme: Theme) => css`
   @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/static/pretendard-std.css");
 
   ${emotionReset}
+  html {
+    // the amount of content decides whether there be a scroll bar
+    // therefore, if we move to a content-rich page to the opposite,
+    // all DOM elements will shift due to the removal of scrollbar.
+    // therefore, we need this to always display scrollbar regardless of the amount of the content
+    overflow-y: scroll;
+  }
 
-  html, body {
+  html,
+  body {
     min-height: 100%;
     word-break: keep-all;
     line-height: 1.5;
