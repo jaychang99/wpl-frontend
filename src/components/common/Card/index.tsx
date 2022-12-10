@@ -17,6 +17,7 @@ import RestroomIcon from "components/common/icons/RestroomIcon";
 import WifiIcon from "components/common/icons/WifiIcon";
 import { CATEGORIES } from "constants/categories";
 import Image from "next/image";
+import { usePlacesContext } from "pages/contexts/PlacesContext";
 import React, { HTMLAttributes } from "react";
 import { Place } from "types/api";
 import { getCrowdnessPercentage } from "utils/crowdness";
@@ -39,7 +40,7 @@ function Card({
         <Image
           alt="place image"
           fill
-          src={`/images/place${id}.jpg`}
+          src={`/images/place${id}.png`}
           style={imageCss}
         />
       </CardTopImageContainer>
