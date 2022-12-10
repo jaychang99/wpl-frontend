@@ -38,3 +38,20 @@ export const PlaceLastUpdatedText = styled.div`
   ${({ theme }) => typography(theme.color.black700, 12, 400)}
   align-self: flex-end;
 `;
+
+export const PlaceIndicatorContainer = styled.div`
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid ${({ theme }) => theme.color.black100};
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+`;
+
+export const PlaceCrowdnessContainer = styled.div`
+  display: flex;
+`;
+export const PlaceFacilityContainer = styled.div`
+  display: flex;
+  column-gap: 4px;
+`;
