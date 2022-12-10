@@ -5,6 +5,7 @@ import { StyledLoginFormSection } from "components/pages/login/sections/LoginFor
 import { FormEvent, useCallback } from "react";
 import { LoginInputFields } from "types/inputs";
 import { serverAxios } from "utils/commonAxios";
+import { setCookie } from "utils/cookies";
 
 function LoginFormSection() {
   const handleSubmit = useCallback((e: FormEvent<HTMLFormElement>) => {
@@ -29,7 +30,7 @@ function LoginFormSection() {
           // on success of POST request
           console.log("LOGIN SUCCESSFUL");
           console.log(response.data);
-          localStorage.setItem("token", response.data.access_token);
+          setCookie("wts_web_token", response.data.access_token, 1);
         });
       } catch (e) {
         console.log(e);
