@@ -10,7 +10,16 @@ export const StyledMainCurrentQuietPlaceSection = styled.section`
 `;
 
 export const MainCurrentQuietPlaceContainer = styled.div`
-  display: flex;
-  column-gap: 40px;
-  flex-wrap: wrap;
+  display: grid;
+  gap: 36px;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: ${({ theme }) => theme.intervals.i3};
+
+  ${({ theme }) => theme.device.container} {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  ${({ theme }) => theme.device.mobile} {
+    grid-template-columns: 1fr;
+    grid-gap: ${({ theme }) => theme.intervals.i2};
+  }
 `;
