@@ -1,3 +1,4 @@
+import { css } from "@emotion/react";
 import Button from "components/common/Button";
 import Input from "components/common/Input";
 import { StyledLoginFormSection } from "components/pages/login/sections/LoginFormSection/styles";
@@ -11,7 +12,13 @@ function LoginFormSection() {
         label="password"
         placeholder="Please input password"
       />
-      <Button>Login</Button>
+      <Button
+        css={css`
+          margin-top: 30px;
+        `}
+      >
+        Login
+      </Button>
     </StyledLoginFormSection>
   );
 }

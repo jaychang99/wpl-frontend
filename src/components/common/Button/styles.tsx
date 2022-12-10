@@ -30,7 +30,7 @@ const colorStyle = (
   ${filled
     ? css`
         background-color: ${theme.color[`${getColorByVariant(variant)}700`]};
-        color: ${theme.color[`${getColorByVariant(variant)}100`]};
+        color: ${theme.color.white};
         border: none;
         &:hover {
           background-color: ${theme.color[`${getColorByVariant(variant)}800`]};
