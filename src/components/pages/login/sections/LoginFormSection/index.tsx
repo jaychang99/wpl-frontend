@@ -2,6 +2,7 @@ import { css } from "@emotion/react";
 import Button from "components/common/Button";
 import Input from "components/common/Input";
 import { StyledLoginFormSection } from "components/pages/login/sections/LoginFormSection/styles";
+import router from "next/router";
 import { FormEvent, useCallback } from "react";
 import { LoginInputFields } from "types/inputs";
 import { serverAxios } from "utils/commonAxios";
@@ -29,6 +30,7 @@ function LoginFormSection() {
         serverAxios.post(requestURL, body, config).then(function (response) {
           // on success of POST request
           console.log("LOGIN SUCCESSFUL");
+          router.push("/");
           console.log(response.data);
           setCookie("wts_web_token", response.data.access_token, 1);
         });
