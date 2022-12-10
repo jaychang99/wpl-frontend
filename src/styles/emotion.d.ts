@@ -32,5 +32,12 @@ declare module "@emotion/react" {
       bold: number; // 700
       light: number; // 400
     };
+    padding: {
+      pageLayout: string;
+    };
+    widths: {
+      widePageWidth: string;
+      defaultPageWidth: string;
+    };
   }
 }

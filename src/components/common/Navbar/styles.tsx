@@ -16,6 +16,7 @@ export const StyledNavbar = styled.nav<{ transparent: boolean }>`
 
   display: flex;
   align-items: center;
+  justify-content: center;
 `;
 
 export const NavbarContainer = styled.div`
@@ -23,6 +24,8 @@ export const NavbarContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-content: center;
+  max-width: ${({ theme }) =>
+    `calc(${theme.padding.pageLayout} * 2 + ${theme.widths.widePageWidth})`};
 `;
 
 export const NavbarLogoText = styled.div`

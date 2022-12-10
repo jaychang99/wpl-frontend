@@ -29,4 +29,11 @@ export const theme: Theme = {
     bold: 700,
     light: 400,
   },
+  padding: {
+    pageLayout: "40px",
+  },
+  widths: {
+    widePageWidth: "1120px",
+    defaultPageWidth: "800px",
+  },
 };
