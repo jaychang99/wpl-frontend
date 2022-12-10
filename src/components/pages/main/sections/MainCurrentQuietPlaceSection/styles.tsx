@@ -6,9 +6,11 @@ export const StyledMainCurrentQuietPlaceSection = styled.section`
   display: flex;
   flex-direction: column;
   row-gap: 20px;
+  align-items: center;
 `;
 
 export const MainCurrentQuietPlaceContainer = styled.div`
   display: flex;
   column-gap: 40px;
+  flex-wrap: wrap;
 `;
