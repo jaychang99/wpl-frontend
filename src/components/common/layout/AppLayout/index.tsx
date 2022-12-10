@@ -8,12 +8,13 @@ import { ReactNode } from "react";
 
 interface Props {
   children: ReactNode;
+  nickname?: string;
 }
 
-function AppLayout({ children }: Props) {
+function AppLayout({ children, nickname }: Props) {
   return (
     <>
-      <Navbar />
+      <Navbar nickname={nickname} />
       <Container>
         <ContentBox>{children}</ContentBox>
         {/* <Footer /> */}

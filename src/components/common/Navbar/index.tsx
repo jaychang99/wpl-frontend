@@ -9,9 +9,11 @@ import Link from "next/link";
 import React, { HTMLAttributes } from "react";
 import { NavbarMenuItem } from "./styles";
 
-interface Props extends HTMLAttributes<HTMLElement> {}
+interface Props extends HTMLAttributes<HTMLElement> {
+  nickname?: string;
+}
 
-function Navbar(props: Props) {
+function Navbar({ nickname, ...props }: Props) {
   const { scrollY } = useScrollPosition();
 
   return (
@@ -22,7 +24,7 @@ function Navbar(props: Props) {
         </Link>
         <NavbarMenuContainer>
           <Link href="/login">
-            <NavbarMenuItem>Login</NavbarMenuItem>
+            <NavbarMenuItem>{nickname ?? "Login"}</NavbarMenuItem>
           </Link>
           <Link href="/register">
             <NavbarMenuItem>Register</NavbarMenuItem>
