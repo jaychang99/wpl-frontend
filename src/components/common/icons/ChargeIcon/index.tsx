@@ -18,16 +18,16 @@ const ChargeIcon = (props: Props) => {
       <path
         d="M18.5 4L17 6H19L17.5 8"
         stroke="#2A4157"
-        stroke-opacity="0.24"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeOpacity="0.24"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M6.5 16L5 18H7L5.5 20"
         stroke="#2A4157"
-        stroke-opacity="0.24"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeOpacity="0.24"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );
