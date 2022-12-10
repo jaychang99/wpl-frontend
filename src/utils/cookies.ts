@@ -40,7 +40,14 @@ export function getCookie(c_name: string, cookies?: string) {
   }
 }
 
-// code from https://stackoverflow.com/questions/14573223/set-cookie-and-get-cookie-with-javascript
-export function eraseCookie(name: string) {
-  document.cookie = name + "=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;";
+// code from https://stackoverflow.com/questions/2144386/how-to-delete-a-cookie
+export function eraseCookie(name: string, path?: string, domain?: string) {
+  if (getCookie(name)) {
+    document.cookie =
+      name +
+      "=" +
+      (path ? ";path=" + path : "") +
+      (domain ? ";domain=" + domain : "") +
+      ";expires=Thu, 01 Jan 1970 00:00:01 GMT";
+  }
 }

@@ -6,7 +6,9 @@ import {
 } from "components/common/Navbar/styles";
 import useScrollPosition from "hooks/useScrollPosition";
 import Link from "next/link";
-import React, { HTMLAttributes } from "react";
+import router from "next/router";
+import React, { HTMLAttributes, MouseEvent, useCallback } from "react";
+import { eraseCookie } from "utils/cookies";
 import { NavbarMenuItem } from "./styles";
 
 interface Props extends HTMLAttributes<HTMLElement> {
@@ -16,6 +18,15 @@ interface Props extends HTMLAttributes<HTMLElement> {
 function Navbar({ nickname, ...props }: Props) {
   const { scrollY } = useScrollPosition();
 
+  const handleLogout = useCallback((e: MouseEvent) => {
+    e.preventDefault();
+    async function handleEvent() {
+      eraseCookie("wts_web_token");
+      router.push("/");
+    }
+    handleEvent();
+  }, []);
+
   return (
     <StyledNavbar transparent={scrollY === 0} {...props}>
       <NavbarContainer>
@@ -23,11 +34,23 @@ function Navbar({ nickname, ...props }: Props) {
           <NavbarLogoText>WTS</NavbarLogoText>
         </Link>
         <NavbarMenuContainer>
-          <Link href="/login">
-            <NavbarMenuItem>{nickname ?? "Login"}</NavbarMenuItem>
+          <Link href={nickname ? "#" : "/login"}>
+            <NavbarMenuItem>
+              {nickname ? "Welcome, " + nickname : "Login"}
+            </NavbarMenuItem>
           </Link>
-          <Link href="/register">
-            <NavbarMenuItem>Register</NavbarMenuItem>
+          <Link href={nickname ? "#" : "/register"}>
+            <NavbarMenuItem
+              onClick={
+                nickname
+                  ? handleLogout
+                  : () => {
+                      router.push("register");
+                    }
+              }
+            >
+              {nickname ? "Logout" : "Register"}
+            </NavbarMenuItem>
           </Link>
         </NavbarMenuContainer>
       </NavbarContainer>
