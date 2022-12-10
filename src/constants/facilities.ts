@@ -1,1 +1,1 @@
-export const facilities = ["wifi", "charge", "restroom"];
+export const FACILITIES = ["wifi", "charge", "restroom"];

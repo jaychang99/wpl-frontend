@@ -1,1 +1,1 @@
-export const categories = ["cafe", "study cafe", "school facility"];
+export const CATEGORIES = ["cafe", "study cafe", "school facility"];
