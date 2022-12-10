@@ -5,6 +5,7 @@ import {
   StyledNavbar,
 } from "components/common/Navbar/styles";
 import useScrollPosition from "hooks/useScrollPosition";
+import Link from "next/link";
 import React, { HTMLAttributes } from "react";
 import { NavbarMenuItem } from "./styles";
 
@@ -16,10 +17,16 @@ function Navbar(props: Props) {
   return (
     <StyledNavbar transparent={scrollY === 0} {...props}>
       <NavbarContainer>
-        <NavbarLogoText>WTS</NavbarLogoText>
+        <Link href="/">
+          <NavbarLogoText>WTS</NavbarLogoText>
+        </Link>
         <NavbarMenuContainer>
-          <NavbarMenuItem>Login</NavbarMenuItem>
-          <NavbarMenuItem>Register</NavbarMenuItem>
+          <Link href="/login">
+            <NavbarMenuItem>Login</NavbarMenuItem>
+          </Link>
+          <Link href="/register">
+            <NavbarMenuItem>Register</NavbarMenuItem>
+          </Link>
         </NavbarMenuContainer>
       </NavbarContainer>
     </StyledNavbar>
