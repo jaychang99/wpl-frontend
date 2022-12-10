@@ -29,6 +29,7 @@ function LoginFormSection() {
           // on success of POST request
           console.log("LOGIN SUCCESSFUL");
           console.log(response.data);
+          localStorage.setItem("token", response.data.access_token);
         });
       } catch (e) {
         console.log(e);
