@@ -34,6 +34,13 @@ export const CardBottomInfoContainer = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: 10px;
+  justify-content: space-between;
+`;
+
+export const PlaceBottonInfoTopContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
 `;
 
 export const PlaceCategoryText = styled.div`

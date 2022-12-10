@@ -2,6 +2,7 @@ import { css } from "@emotion/react";
 import {
   CardBottomInfoContainer,
   CardTopImageContainer,
+  PlaceBottonInfoTopContainer,
   PlaceCategoryText,
   PlaceCrowdnessContainer,
   PlaceFacilityContainer,
@@ -41,11 +42,13 @@ function Card({
         />
       </CardTopImageContainer>
       <CardBottomInfoContainer>
-        <PlaceCategoryText>{CATEGORIES[category - 1]}</PlaceCategoryText>
-        <PlaceNameText>{name}</PlaceNameText>
-        <PlaceLastUpdatedText>
-          Last updated: {lastUpdated.toLocaleString("en-US")}
-        </PlaceLastUpdatedText>
+        <PlaceBottonInfoTopContainer>
+          <PlaceCategoryText>{CATEGORIES[category - 1]}</PlaceCategoryText>
+          <PlaceNameText>{name}</PlaceNameText>
+          <PlaceLastUpdatedText>
+            Last updated: {lastUpdated.toLocaleString("en-US")}
+          </PlaceLastUpdatedText>
+        </PlaceBottonInfoTopContainer>
         <PlaceIndicatorContainer>
           <PlaceCrowdnessContainer>
             <CrowdnessIcon /> {getCrowdnessPercentage(crowdness)}
