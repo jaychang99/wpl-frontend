@@ -10,7 +10,7 @@ export const MOCKUP_PLACES_PAGE_1: PlacesApiResponse = {
       id: 1,
       name: "Starbucks SKKU",
       category: 1,
-      crowdness: 0.5, // between 0 and 1.
+      crowdness: 50, // between 0 and 100.
       facilities: [1, 2, 3],
       lastUpdated: new Date("2022-12-09T18:24:00"),
     },
@@ -18,7 +18,7 @@ export const MOCKUP_PLACES_PAGE_1: PlacesApiResponse = {
       id: 2,
       name: "Learning Factory SKKU",
       category: 3,
-      crowdness: 0.5, // between 0 and 1.
+      crowdness: 60, // between 0 and 100.
       facilities: [1, 3],
       lastUpdated: new Date("2022-12-08T15:24:00"),
     },
