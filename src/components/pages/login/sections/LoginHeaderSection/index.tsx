@@ -5,7 +5,7 @@ function LoginHeaderSection() {
   return (
     <FormPageHeader
       headingText="Login"
-      subHeadingText="log in to be a contributor!"
+      subHeadingText="log in to contribute!"
     />
   );
 }
