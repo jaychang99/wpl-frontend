@@ -33,7 +33,7 @@ export const theme: Theme = {
     pageLayout: "40px",
   },
   widths: {
-    widePageWidth: "1120px",
-    defaultPageWidth: "800px",
+    widePageWidth: "1440px",
+    defaultPageWidth: "1280px",
   },
 };

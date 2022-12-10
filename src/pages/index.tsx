@@ -1,63 +1,8 @@
+import PageLayout from "components/common/PageLayout";
 import type { NextPage } from "next";
 
 const Home: NextPage = () => {
-  return (
-    <>
-      <div>main page</div>
-      <div>main page</div>
-      <div>main page</div>
-      <div>main page</div>
-      <div>main page</div>
-      <div>main page</div>
-      <div>main page</div>
-      <div>main page</div>
-      <div>main page</div>
-      <div>main page</div>
-      <div>main page</div>
-      <div>main page</div>
-      <div>main page</div>
-      <div>main page</div>
-      <div>main page</div>
-      <div>main page</div>
-      <div>main page</div>
-      <div>main page</div>
-      <div>main page</div>
-      <div>main page</div>
-      <div>main page</div>
-      <div>main page</div>
-      <div>main page</div>
-      <div>main page</div>
-      <div>main page</div>
-      <div>main page</div>
-      <div>main page</div>
-      <div>main page</div>
-      <div>main page</div>
-      <div>main page</div>
-      <div>main page</div>
-      <div>main page</div>
-      <div>main page</div>
-      <div>main page</div>
-      <div>main page</div>
-      <div>main page</div>
-      <div>main page</div>
-      <div>main page</div>
-      <div>main page</div>
-      <div>main page</div>
-      <div>main page</div>
-      <div>main page</div>
-      <div>main page</div>
-      <div>main page</div>
-      <div>main page</div>
-      <div>main page</div>
-      <div>main page</div>
-      <div>main page</div>
-      <div>main page</div>
-      <div>main page</div>
-      <div>main page</div>
-      <div>main page</div>
-      <div>main page</div>
-    </>
-  );
+  return <PageLayout type="default">Welcome to Where to Study</PageLayout>;
 };
 
 export default Home;

@@ -25,7 +25,7 @@ export const NavbarContainer = styled.div`
   justify-content: space-between;
   align-content: center;
   max-width: ${({ theme }) =>
-    `calc(${theme.padding.pageLayout} * 2 + ${theme.widths.widePageWidth})`};
+    `calc(${theme.padding.pageLayout} * 2 + ${theme.widths.defaultPageWidth})`};
 `;
 
 export const NavbarLogoText = styled.div`
