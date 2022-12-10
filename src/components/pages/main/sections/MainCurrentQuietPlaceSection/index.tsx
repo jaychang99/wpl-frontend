@@ -5,13 +5,17 @@ import {
   StyledMainCurrentQuietPlaceSection,
 } from "components/pages/main/sections/MainCurrentQuietPlaceSection/styles";
 import { MOCKUP_PLACES_PAGE_1 } from "mockups/places";
+import { usePlacesContext } from "pages/contexts/PlacesContext";
+import { Place } from "types/api";
 
 function MainCurrentQuietPlaceSection() {
+  const places = usePlacesContext() as any; // TODO: remove type assertion
+  console.log("PLACES", places);
   return (
     <StyledMainCurrentQuietPlaceSection>
       <Typography size={"h2"}>Currently Quiet Places</Typography>
       <MainCurrentQuietPlaceContainer>
-        {MOCKUP_PLACES_PAGE_1.content.map((place) => (
+        {places.places.map((place: Place) => (
           <Card key={place.id} {...place} />
         ))}
       </MainCurrentQuietPlaceContainer>
