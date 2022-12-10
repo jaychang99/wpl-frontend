@@ -15,5 +15,8 @@ export interface Place {
   facilities: number[]; // ex) 'wifi', 'charge', 'restroom' -> references constants/facilities.ts
   lastUpdated: Date;
 }
+export interface User {
+  nickname: string;
+}
 
 export interface PlacesApiResponse extends PagedApiResponse<Place> {}
