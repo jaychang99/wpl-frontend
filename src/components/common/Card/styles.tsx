@@ -11,6 +11,15 @@ export const StyledCard = styled.div`
   box-shadow: 0px 2px 8px rgba(95, 123, 255, 0.25);
 `;
 
+export const CardTopImageContainer = styled.div`
+  position: absolute;
+  /* background-color: red; */
+  border-radius: 20px 20px 0 0;
+  width: 100%;
+  height: 50%;
+  overflow: hidden; // this allows border radius of this container to be applied
+`;
+
 export const CardBottomInfoContainer = styled.div`
   /* self-related */
   /* background-color: red; */

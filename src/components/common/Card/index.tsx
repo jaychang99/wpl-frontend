@@ -1,5 +1,7 @@
+import { css } from "@emotion/react";
 import {
   CardBottomInfoContainer,
+  CardTopImageContainer,
   PlaceCategoryText,
   PlaceCrowdnessContainer,
   PlaceFacilityContainer,
@@ -13,9 +15,10 @@ import CrowdnessIcon from "components/common/icons/CrowdnessIcon";
 import RestroomIcon from "components/common/icons/RestroomIcon";
 import WifiIcon from "components/common/icons/WifiIcon";
 import { CATEGORIES } from "constants/categories";
+import Image from "next/image";
 import React, { HTMLAttributes } from "react";
 import { Place } from "types/api";
-import { getCrowdnessPercentage } from "../../../utils/crowdness";
+import { getCrowdnessPercentage } from "utils/crowdness";
 
 interface Props extends Omit<HTMLAttributes<HTMLButtonElement>, "id">, Place {}
 
@@ -29,7 +32,14 @@ function Card({
 }: Props) {
   return (
     <StyledCard>
-      Card
+      <CardTopImageContainer>
+        <Image
+          alt="place image"
+          fill={true}
+          objectFit="cover"
+          src={`/images/place${id}.jpg`}
+        />
+      </CardTopImageContainer>
       <CardBottomInfoContainer>
         <PlaceCategoryText>{CATEGORIES[category - 1]}</PlaceCategoryText>
         <PlaceNameText>{name}</PlaceNameText>
