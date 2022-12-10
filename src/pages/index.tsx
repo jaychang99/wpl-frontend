@@ -24,7 +24,7 @@ const Home = (props: Props) => {
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const nicknameObject = await getNavbarServerSideProps({ ...(ctx as any) });
-  // const nickname = nicknameObject.props.nickname;
+  const nickname = nicknameObject.props.nickname;
 
   const requestURL = "places";
   ctx.res.setHeader(
@@ -35,12 +35,20 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
   try {
     const { data: places } = await serverAxios.get<Place[]>(requestURL, config);
     console.log("-----", places);
-    return {
-      props: {
-        places,
-        // nickname,
-      },
-    };
+    if (nickname) {
+      return {
+        props: {
+          places,
+          nickname,
+        },
+      };
+    } else {
+      return {
+        props: {
+          places,
+        },
+      };
+    }
   } catch (err) {
     const { title, statusCode } = getServerAxiosErrorInfo(err);
 
