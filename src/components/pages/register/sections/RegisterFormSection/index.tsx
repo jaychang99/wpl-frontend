@@ -3,7 +3,7 @@ import Button from "components/common/Button";
 import Input from "components/common/Input";
 import { StyledRegisterFormSection } from "components/pages/register/sections/RegisterFormSection/styles";
 import { FormEvent, useCallback } from "react";
-import { InputFields } from "types/inputs";
+import { RegisterInputFields } from "types/inputs";
 import { serverAxios } from "utils/commonAxios";
 
 function RegisterFormSection() {
@@ -15,7 +15,7 @@ function RegisterFormSection() {
       // the following is for the typescript compiler to be able to name if the inputs
       const form = e.currentTarget;
       const formElements = form
-        ? (form.elements as typeof form.elements & InputFields)
+        ? (form.elements as typeof form.elements & RegisterInputFields)
         : null;
 
       try {
