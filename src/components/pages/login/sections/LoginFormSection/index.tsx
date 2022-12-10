@@ -1,6 +1,6 @@
+import Button from "components/common/Button";
 import Input from "components/common/Input";
 import { StyledLoginFormSection } from "components/pages/login/sections/LoginFormSection/styles";
-import React from "react";
 
 function LoginFormSection() {
   return (
@@ -11,6 +11,7 @@ function LoginFormSection() {
         label="password"
         placeholder="Please input password"
       />
+      <Button>Login</Button>
     </StyledLoginFormSection>
   );
 }
