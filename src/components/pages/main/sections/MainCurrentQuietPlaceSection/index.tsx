@@ -12,7 +12,7 @@ function MainCurrentQuietPlaceSection() {
       <Typography size={"h2"}>Currently Quiet Places</Typography>
       <MainCurrentQuietPlaceContainer>
         {MOCKUP_PLACES_PAGE_1.content.map((place) => (
-          <Card key={place.id} />
+          <Card key={place.id} {...place} />
         ))}
       </MainCurrentQuietPlaceContainer>
     </StyledMainCurrentQuietPlaceSection>
