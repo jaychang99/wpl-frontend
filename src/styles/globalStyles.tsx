@@ -1,5 +1,6 @@
 import { css, Global, Theme, useTheme } from "@emotion/react";
 import emotionReset from "emotion-reset";
+import { resetAnchorStyle } from "styles/utils/anchor";
 
 const globalStyles = (theme: Theme) => css`
   @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/static/pretendard-std.css");
@@ -31,6 +32,10 @@ const globalStyles = (theme: Theme) => css`
 
   * {
     box-sizing: border-box;
+  }
+
+  a {
+    ${resetAnchorStyle}
   }
 `;
 
