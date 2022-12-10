@@ -6,7 +6,7 @@ import { StyledLoginFormSection } from "components/pages/login/sections/LoginFor
 function LoginFormSection() {
   return (
     <StyledLoginFormSection>
-      <Input label="email" placeholder="Please input email" />
+      <Input type="email" label="email" placeholder="Please input email" />
       <Input
         type="password"
         label="password"
