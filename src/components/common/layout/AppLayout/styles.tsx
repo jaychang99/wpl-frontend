@@ -6,6 +6,7 @@ export const Container = styled.div`
   flex-direction: column;
   padding-top: ${NAVBAR_HEIGHT}px;
   min-height: 100vh;
+  margin: 0 40px;
 `;
 
 export const ContentBox = styled.div`
