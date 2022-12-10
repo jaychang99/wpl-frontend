@@ -31,14 +31,16 @@ function Card({
   facilities,
   lastUpdated,
 }: Props) {
+  const imageCss = { objectFit: "cover" } as React.CSSProperties;
+
   return (
     <StyledCard>
       <CardTopImageContainer>
         <Image
           alt="place image"
-          fill={true}
-          objectFit="cover"
+          fill
           src={`/images/place${id}.jpg`}
+          style={imageCss}
         />
       </CardTopImageContainer>
       <CardBottomInfoContainer>
