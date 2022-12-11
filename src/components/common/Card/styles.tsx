@@ -1,7 +1,8 @@
 import styled from "@emotion/styled";
+import { motion } from "framer-motion";
 import { typography } from "styles/utils/typography";
 
-export const StyledCard = styled.div`
+export const StyledCard = styled(motion.div)`
   position: relative;
   width: 300px;
   height: 420px;

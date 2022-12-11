@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { motion } from "framer-motion";
 
 export const StyledMainCurrentQuietPlaceSection = styled.section`
   width: 100%;
@@ -9,7 +10,7 @@ export const StyledMainCurrentQuietPlaceSection = styled.section`
   align-items: center;
 `;
 
-export const MainCurrentQuietPlaceContainer = styled.div`
+export const MainCurrentQuietPlaceContainer = styled(motion.div)`
   display: grid;
   gap: 36px;
   grid-template-columns: repeat(4, 1fr);

@@ -21,8 +21,9 @@ import { usePlacesContext } from "components/pages/contexts/PlacesContext";
 import React, { HTMLAttributes } from "react";
 import { Place } from "types/api";
 import { getCrowdnessPercentage } from "utils/crowdness";
+import { HTMLMotionProps } from "framer-motion";
 
-interface Props extends Omit<HTMLAttributes<HTMLButtonElement>, "id">, Place {}
+interface Props extends Omit<HTMLMotionProps<"div">, "id">, Place {}
 
 function Card({
   id,
@@ -31,11 +32,12 @@ function Card({
   crowdness,
   facilities,
   lastUpdated,
+  ...props
 }: Props) {
   const imageCss = { objectFit: "cover" } as React.CSSProperties;
 
   return (
-    <StyledCard>
+    <StyledCard {...props}>
       <CardTopImageContainer>
         <Image
           alt="place image"
