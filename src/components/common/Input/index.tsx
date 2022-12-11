@@ -57,7 +57,7 @@ const Input = forwardRef<HTMLInputElement, Props>(
 
           if (beenFocused.current) {
             // only if have been focused
-            console.log("BLURRED");
+
             const inputValue = inputRef?.current?.value;
 
             // validate email
@@ -110,7 +110,6 @@ const Input = forwardRef<HTMLInputElement, Props>(
     );
 
     useImperativeHandle(ref, () => {
-      console.log("useImper", inputRef.current);
       return inputRef.current as HTMLInputElement;
     });
 
