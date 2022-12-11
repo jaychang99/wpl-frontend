@@ -16,6 +16,11 @@ import {
   InputContainer,
   StyledInput,
 } from "components/common/Input/styles";
+import {
+  ALPHANUMERIC_ONLY_REGEXT,
+  VALID_EMAIL_REGEX,
+  VALID_PASSWORD_REGEX,
+} from "constants/regex";
 
 export interface Props extends InputHTMLAttributes<HTMLInputElement> {
   label?: string;
@@ -57,8 +62,6 @@ const Input = forwardRef<HTMLInputElement, Props>(
 
             // validate email
             if (validationPipe === "email") {
-              const VALID_EMAIL_REGEX = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/; // regex from https://stackoverflow.com/questions/940577/javascript-regular-expression-email-validation
-
               if (!inputValue?.match(VALID_EMAIL_REGEX)) {
                 setWarningMessage("please enter a valid email address");
               } else {
@@ -68,8 +71,6 @@ const Input = forwardRef<HTMLInputElement, Props>(
 
             // validate password
             if (validationPipe === "password") {
-              const VALID_PASSWORD_REGEX =
-                /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,}$/; // regex from https://stackoverflow.com/questions/19605150/regex-for-password-must-contain-at-least-eight-characters-at-least-one-number-a
               if (!inputValue?.match(VALID_PASSWORD_REGEX)) {
                 setWarningMessage(
                   "Password needs to have at least 6 characters, one capital letter, one lowercase letter, at least one digit and one special character. "
@@ -81,7 +82,6 @@ const Input = forwardRef<HTMLInputElement, Props>(
 
             // validate password confirm
             if (validationPipe === "passwordConfirm") {
-              console.log(originalPassword);
               if (!(inputValue === originalPassword)) {
                 setWarningMessage("passwords do not match");
               } else {
@@ -91,10 +91,8 @@ const Input = forwardRef<HTMLInputElement, Props>(
 
             // validate nickname
             if (validationPipe === "nickname") {
-              const ALPHABET_ONLY_REGEXT = /^[0-9A-Za-z]+$/; // regex from https://stackoverflow.com/questions/6067592/regular-expression-to-match-only-alphabetic-characters
-
               if (
-                !inputValue?.match(ALPHABET_ONLY_REGEXT) ||
+                !inputValue?.match(ALPHANUMERIC_ONLY_REGEXT) ||
                 inputValue.length > 11
               ) {
                 setWarningMessage(

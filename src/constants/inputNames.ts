@@ -6,6 +6,7 @@ export const REPORT_INPUT_FIELDS = {
 export const REGISTER_INPUT_FIELDS = {
   email: "email",
   password: "password",
+  passwordConfirm: "passwordConfirm",
   nickname: "nickname",
 } as const;
 
