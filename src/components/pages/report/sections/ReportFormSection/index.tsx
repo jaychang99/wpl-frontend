@@ -6,7 +6,7 @@ import { StyledReportFormSection } from "components/pages/report/sections/Report
 import { CROWDEDNESS } from "constants/crowdedness";
 import usePlaces from "hooks/usePlaces";
 
-import { FormEvent, useCallback, useState } from "react";
+import { FormEvent, useCallback, useRef, useState } from "react";
 import {
   getIdOfPlaceName,
   getNumberFromCrowdnessPercentage,
@@ -14,7 +14,12 @@ import {
 import { serverAxios } from "utils/commonAxios";
 import { getCookie } from "utils/cookies";
 
-function ReportFormSection() {
+interface Props {
+  nickname: string;
+}
+
+function ReportFormSection({ nickname, ...props }: Props) {
+  const nicknameRef = useRef(nickname);
   const [selectedPlace, setSelectedPlace] = useState("");
   const [selectedCrowdedness, setselectedCrowdedness] = useState("");
 
@@ -54,13 +59,13 @@ function ReportFormSection() {
           const body = {
             placeId: getIdOfPlaceName(selectedPlace, placeNames, placeIds),
             crowdness: getNumberFromCrowdnessPercentage(selectedCrowdedness),
+            lastContributor: nicknameRef.current,
           };
 
           serverAxios
             .patch(requestURL, body, config)
             .then(function (response) {
               // on success of POST request
-              console.log("REPORT GENERATED");
               // if nothing selected
 
               setModalContent({

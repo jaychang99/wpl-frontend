@@ -6,11 +6,15 @@ import type { GetServerSideProps, NextPage } from "next";
 import { getServerAxiosErrorInfo, serverAxios } from "utils/commonAxios";
 import getNavbarServerSideProps from "utils/getServerSideProps";
 
-const Contribute: NextPage = () => {
+interface Props {
+  nickname: string;
+}
+
+const Contribute = ({ nickname }: Props) => {
   return (
     <PageLayout type="default">
       <ReportHeaderSection />
-      <ReportFormSection />
+      <ReportFormSection nickname={nickname} />
       <ReportFooterSection />
     </PageLayout>
   );

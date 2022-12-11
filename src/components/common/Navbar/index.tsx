@@ -41,7 +41,7 @@ function Navbar({ nickname, ...props }: Props) {
             </NavbarMenuItem>
           </Link>
           {nickname && (
-            <Link href="/report">
+            <Link href="/contribute">
               <NavbarMenuItem>Contribute</NavbarMenuItem>
             </Link>
           )}
