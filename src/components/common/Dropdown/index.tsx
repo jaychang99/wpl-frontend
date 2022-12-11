@@ -17,12 +17,14 @@ import { BoxLabel } from "components/common/Box";
 
 interface Props extends HTMLMotionProps<"div"> {
   label?: string;
+  placeholder: string;
   list: string[];
   setItem: Dispatch<SetStateAction<string>>;
 }
 
 function Dropdown({
   label,
+  placeholder,
   list,
   onSelect = (selected) => {},
   onChange,
@@ -30,7 +32,7 @@ function Dropdown({
   ...props
 }: Props) {
   const [showDropdown, setShowDropdown] = useState(false);
-  const [selected, setSelected] = useState("Select Place");
+  const [selected, setSelected] = useState(placeholder);
   return (
     <DropdownContainer {...props}>
       {label && <BoxLabel>{label}</BoxLabel>}

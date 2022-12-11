@@ -46,6 +46,13 @@ function ReportFormSection() {
       <StyledReportFormSection>
         <Dropdown
           label="place"
+          placeholder="Select Place"
+          list={["hello", "I am", "Dropdown"]}
+          setItem={setSelectedPlace}
+        />
+        <Dropdown
+          label="crowdness"
+          placeholder="Select Crowdness"
           list={["hello", "I am", "Dropdown"]}
           setItem={setSelectedPlace}
         />
