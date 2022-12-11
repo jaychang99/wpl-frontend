@@ -123,7 +123,6 @@ function RegisterFormSection() {
         serverAxios
           .post(requestURL, body, config)
           .then(function (response) {
-            console.log(response);
             if (response.data.email === null) {
               // if duplicate email OR nickname
               setModalContent({
