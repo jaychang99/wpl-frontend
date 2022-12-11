@@ -18,14 +18,16 @@ function MainCurrentQuietPlaceSection() {
   const places = usePlacesContext() as any; // TODO: remove type assertion
 
   return (
-    <StyledMainCurrentQuietPlaceSection>
-      <Typography size={"h2"}>Currently Quiet Places</Typography>
-      <MainCurrentQuietPlaceContainer
-        variants={staggerHalf}
-        initial="initial"
-        whileInView="animate"
-        exit="exit"
-      >
+    <StyledMainCurrentQuietPlaceSection
+      variants={staggerHalf}
+      initial="initial"
+      whileInView="animate"
+      exit="exit"
+    >
+      <Typography variants={defaultFadeInUpVariants} size={"h2"}>
+        Currently Quiet Places
+      </Typography>
+      <MainCurrentQuietPlaceContainer>
         {places.places.map((place: Place) => (
           <Card variants={defaultFadeInUpVariants} key={place.id} {...place} />
         ))}

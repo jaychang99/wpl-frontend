@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import { motion } from "framer-motion";
 
-export const StyledMainCurrentQuietPlaceSection = styled.section`
+export const StyledMainCurrentQuietPlaceSection = styled(motion.section)`
   width: 100%;
   padding: 100px 0;
   display: flex;
