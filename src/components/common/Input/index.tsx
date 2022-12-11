@@ -1,8 +1,10 @@
 import {
+  Dispatch,
   EventHandler,
   FocusEventHandler,
   forwardRef,
   InputHTMLAttributes,
+  SetStateAction,
   useCallback,
   useImperativeHandle,
   useRef,
@@ -18,10 +20,22 @@ import {
 export interface Props extends InputHTMLAttributes<HTMLInputElement> {
   label?: string;
   validationPipe?: "email" | "password" | "passwordConfirm" | "nickname"; // decide which type of input validation to perform
+  originalPassword?: string; // for password confirm validation
+  setOriginalPassword?: Dispatch<SetStateAction<string>>; // to update original password for password confirm validation
 }
 
 const Input = forwardRef<HTMLInputElement, Props>(
-  ({ label, className, validationPipe, ...props }, ref) => {
+  (
+    {
+      label,
+      className,
+      validationPipe,
+      originalPassword,
+      setOriginalPassword,
+      ...props
+    },
+    ref
+  ) => {
     const inputRef = useRef<HTMLInputElement>(null);
     const [warningMessage, setWarningMessage] = useState("");
 
@@ -32,6 +46,10 @@ const Input = forwardRef<HTMLInputElement, Props>(
       (e: any) => {
         e.preventDefault();
         async function handleEvent(e: FocusEvent | KeyboardEvent) {
+          if (setOriginalPassword) {
+            setOriginalPassword(inputRef?.current?.value ?? "");
+          }
+
           if (beenFocused.current) {
             // only if have been focused
             console.log("BLURRED");
@@ -61,6 +79,16 @@ const Input = forwardRef<HTMLInputElement, Props>(
               }
             }
 
+            // validate password confirm
+            if (validationPipe === "passwordConfirm") {
+              console.log(originalPassword);
+              if (!(inputValue === originalPassword)) {
+                setWarningMessage("passwords do not match");
+              } else {
+                setWarningMessage("");
+              }
+            }
+
             // validate nickname
             if (validationPipe === "nickname") {
               const ALPHABET_ONLY_REGEXT = /^[0-9A-Za-z]+$/; // regex from https://stackoverflow.com/questions/6067592/regular-expression-to-match-only-alphabetic-characters
@@ -80,10 +108,13 @@ const Input = forwardRef<HTMLInputElement, Props>(
         }
         handleEvent(e);
       },
-      [beenFocused, validationPipe]
+      [originalPassword, setOriginalPassword, validationPipe]
     );
 
-    useImperativeHandle(ref, () => inputRef.current as HTMLInputElement);
+    useImperativeHandle(ref, () => {
+      console.log("useImper", inputRef.current);
+      return inputRef.current as HTMLInputElement;
+    });
 
     return (
       <div>
