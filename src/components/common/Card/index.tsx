@@ -51,7 +51,7 @@ function Card({
           <PlaceCategoryText>{CATEGORIES[category - 1]}</PlaceCategoryText>
           <PlaceNameText>{name}</PlaceNameText>
           <PlaceLastUpdatedText>
-            Last updated: {lastUpdated.toLocaleString("en-US")}
+            Last updated: {new Date(lastUpdated).toLocaleString("en-US")}
           </PlaceLastUpdatedText>
         </PlaceBottonInfoTopContainer>
         <PlaceIndicatorContainer>
