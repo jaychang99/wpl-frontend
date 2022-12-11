@@ -56,10 +56,45 @@ function ReportFormSection() {
             crowdness: getNumberFromCrowdnessPercentage(selectedCrowdedness),
           };
 
-          serverAxios.patch(requestURL, body, config).then(function (response) {
-            // on success of POST request
-            console.log("REPORT GENERATED");
-          });
+          serverAxios
+            .patch(requestURL, body, config)
+            .then(function (response) {
+              // on success of POST request
+              console.log("REPORT GENERATED");
+              // if nothing selected
+
+              setModalContent({
+                title: "Contribution Recorded!",
+                content:
+                  "Thank you for contributing! Your record has been set as the latest updated record",
+              });
+              setShowModal(true);
+
+              return;
+            })
+            .catch((error) => {
+              // if nothing selected
+              if (error.response.status === 400) {
+                setModalContent({
+                  title: "Empty Submission",
+                  content: "Please Select from all the required fields",
+                });
+                setShowModal(true);
+
+                return;
+              }
+
+              // if logged out
+              if (error.response.status === 401) {
+                setModalContent({
+                  title: "Unauthorized Access",
+                  content: "You have been logged out. Please log in again. ",
+                });
+                setShowModal(true);
+
+                return;
+              }
+            });
         } catch (e) {
           console.log(e);
         }
