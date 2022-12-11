@@ -3,14 +3,14 @@ import { useEffect } from "react";
 // prevent scroll when modal open.
 function usePreventScroll() {
   useEffect(() => {
-    const body = document.querySelector("body");
-    if (body) {
-      body.style.overflow = "hidden";
+    const html = document.querySelector("html");
+    if (html) {
+      html.style.overflow = "hidden";
     }
 
     return () => {
-      if (body) {
-        body.style.overflow = "visible";
+      if (html) {
+        html.style.overflow = "visible";
       }
     };
   }, []);
