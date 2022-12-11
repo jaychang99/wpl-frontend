@@ -20,7 +20,10 @@ export default async function getServerSideProps({
       },
     };
   } catch (err) {
-    console.log(err);
+    console.log(
+      "user not logged in. Unable to fetch Navbar data. 401 Unauthorized error"
+    );
+
     const { title, statusCode } = getServerAxiosErrorInfo(err);
 
     return {
