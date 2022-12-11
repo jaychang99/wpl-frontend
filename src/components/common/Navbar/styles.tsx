@@ -42,3 +42,18 @@ export const NavbarMenuItem = styled.div`
   ${typography("default", 16, 700)};
   vertical-align: center;
 `;
+
+// MOBILE
+export const MobileMenuContainer = styled.div`
+  padding: 20px 0 100px;
+  display: flex;
+  row-gap: 10px;
+  flex-direction: column;
+  align-items: center;
+`;
+
+export const MobileMenuItem = styled.div`
+  border-bottom: 1px solid ${({ theme }) => theme.color.black300};
+  padding: 16px;
+  ${typography("default", 20, 400)};
+`;
