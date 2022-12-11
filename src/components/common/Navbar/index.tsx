@@ -72,18 +72,25 @@ function Navbar({ nickname, ...props }: Props) {
           <MobileMenuContainer>
             {nickname && (
               <Link href="/contribute">
-                <MobileMenuItem>Contribute</MobileMenuItem>
+                <MobileMenuItem
+                  onClick={() => {
+                    setIsOpen(!isOpen);
+                  }}
+                >
+                  Contribute
+                </MobileMenuItem>
               </Link>
             )}
             <Link href={nickname ? "#" : "/register"}>
               <MobileMenuItem
-                onClick={
-                  nickname
-                    ? handleLogout
-                    : () => {
-                        router.push("register");
-                      }
-                }
+                onClick={(e) => {
+                  setIsOpen(!isOpen);
+                  if (nickname) {
+                    handleLogout(e);
+                  } else {
+                    router.push("register");
+                  }
+                }}
               >
                 {nickname ? "Logout" : "Register"}
               </MobileMenuItem>
