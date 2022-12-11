@@ -49,14 +49,14 @@ function ReportFormSection() {
     <form onSubmit={handleSubmit}>
       <StyledReportFormSection>
         <Dropdown
-          stackingOrder={1}
+          stackingorder={1}
           label="place"
           placeholder="Select Place"
           list={placeNames}
           setItem={setSelectedPlace}
         />
         <Dropdown
-          stackingOrder={2}
+          stackingorder={2}
           label="crowdedness"
           placeholder="Select Crowdedness"
           list={CROWDEDNESS}

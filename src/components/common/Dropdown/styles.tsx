@@ -1,13 +1,13 @@
 import styled from "@emotion/styled";
 import { motion } from "framer-motion";
 
-export const DropdownContainer = styled(motion.div)<{ stackingOrder: number }>`
+export const DropdownContainer = styled(motion.div)<{ stackingorder: number }>`
   position: relative;
   width: 300px;
   border-radius: 10px;
   background-color: ${({ theme }) => theme.color.white};
   cursor: pointer;
-  z-index: ${({ stackingOrder }) => 100 - stackingOrder};
+  z-index: ${({ stackingorder }) => 100 - stackingorder};
 `;
 
 export const SelectedLabel = styled.div`

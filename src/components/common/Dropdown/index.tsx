@@ -20,7 +20,7 @@ interface Props extends HTMLMotionProps<"div"> {
   placeholder: string;
   list: string[];
   setItem: Dispatch<SetStateAction<string>>;
-  stackingOrder: number;
+  stackingorder: number;
 }
 
 function Dropdown({
@@ -30,13 +30,13 @@ function Dropdown({
   onSelect = (selected) => {},
   onChange,
   setItem,
-  stackingOrder, // order of dropdown UIs  -> to determine z-index
+  stackingorder, // order of dropdown UIs  -> to determine z-index
   ...props
 }: Props) {
   const [showDropdown, setShowDropdown] = useState(false);
   const [selected, setSelected] = useState(placeholder);
   return (
-    <DropdownContainer stackingOrder={stackingOrder} {...props}>
+    <DropdownContainer stackingorder={stackingorder} {...props}>
       {label && <BoxLabel>{label}</BoxLabel>}
       <SelectedLabel
         onClick={() => {
