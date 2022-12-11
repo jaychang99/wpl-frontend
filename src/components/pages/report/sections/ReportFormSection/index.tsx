@@ -3,6 +3,8 @@ import Button from "components/common/Button";
 import Dropdown from "components/common/Dropdown";
 import Input from "components/common/Input";
 import { StyledReportFormSection } from "components/pages/report/sections/ReportFormSection/styles";
+import { CROWDEDNESS } from "constants/crowdedness";
+
 import { FormEvent, SetStateAction, useCallback, useState } from "react";
 import { ReportInputFields } from "types/inputs";
 import { serverAxios } from "utils/commonAxios";
@@ -45,39 +47,20 @@ function ReportFormSection() {
     <form onSubmit={handleSubmit}>
       <StyledReportFormSection>
         <Dropdown
+          stackingOrder={1}
           label="place"
           placeholder="Select Place"
           list={["hello", "I am", "Dropdown"]}
           setItem={setSelectedPlace}
         />
         <Dropdown
-          label="crowdness"
-          placeholder="Select Crowdness"
-          list={["hello", "I am", "Dropdown"]}
+          stackingOrder={2}
+          label="crowdedness"
+          placeholder="Select Crowdedness"
+          list={CROWDEDNESS}
           setItem={setSelectedPlace}
         />
-        <Input
-          type="email"
-          name="email"
-          label="email"
-          placeholder="Please input email"
-        />
-        <Input
-          type="password"
-          label="password"
-          name="password"
-          placeholder="Please input password"
-        />
-        <Input
-          type="password"
-          label="confirm password"
-          placeholder="Please confirm password"
-        />
-        <Input
-          name="nickname"
-          label="nickname"
-          placeholder="Please input nickname"
-        />
+
         <Button
           type="submit"
           css={css`
