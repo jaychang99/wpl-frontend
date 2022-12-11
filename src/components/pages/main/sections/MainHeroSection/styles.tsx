@@ -5,6 +5,12 @@ import { typography } from "styles/utils/typography";
 export const StyledMainHeroSection = styled(motion.main)`
   width: 100%;
   padding: 100px 0;
+  ${({ theme }) => theme.device.container} {
+    padding: 70px 0px 40px;
+  }
+  ${({ theme }) => theme.device.mobile} {
+    padding: 50px 0px 20px;
+  }
   display: flex;
   align-items: center;
   flex-direction: column;
