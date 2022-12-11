@@ -12,6 +12,17 @@ const globalStyles = (theme: Theme) => css`
     // all DOM elements will shift due to the removal of scrollbar.
     // therefore, we need this to always display scrollbar regardless of the amount of the content
     overflow-y: scroll;
+
+    // code from https://www.w3schools.com/howto/howto_css_hide_scrollbars.asp
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* Hide scrollbar for IE, Edge and Firefox */
+
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
   }
 
   html,
