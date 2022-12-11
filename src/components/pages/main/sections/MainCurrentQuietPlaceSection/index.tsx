@@ -25,7 +25,7 @@ function MainCurrentQuietPlaceSection() {
       exit="exit"
     >
       <Typography variants={defaultFadeInUpVariants} size={"h2"}>
-        Currently Quiet Places
+        Featured Places
       </Typography>
       <MainCurrentQuietPlaceContainer>
         {places.places.map((place: Place) => (
