@@ -40,6 +40,11 @@ function Navbar({ nickname, ...props }: Props) {
               {nickname ? "Welcome, " + nickname : "Login"}
             </NavbarMenuItem>
           </Link>
+          {nickname && (
+            <Link href="/report">
+              <NavbarMenuItem>Contribute</NavbarMenuItem>
+            </Link>
+          )}
           <Link href={nickname ? "#" : "/register"}>
             <NavbarMenuItem
               onClick={
