@@ -22,12 +22,15 @@ export const MainCurrentQuietPlaceContainer = styled(motion.div)`
   gap: 36px;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: ${({ theme }) => theme.intervals.i3};
+  padding-top: 50px;
 
   ${({ theme }) => theme.device.container} {
     grid-template-columns: repeat(2, 1fr);
+    padding-top: 30px;
   }
   ${({ theme }) => theme.device.mobile} {
     grid-template-columns: 1fr;
     grid-gap: ${({ theme }) => theme.intervals.i2};
+    padding-top: 10px;
   }
 `;
