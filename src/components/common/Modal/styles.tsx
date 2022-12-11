@@ -28,7 +28,7 @@ export const ModalContainer = styled(motion.div)`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-
+  margin: 0 20px;
   width: 600px;
   min-height: 305px;
   max-height: 600px;
