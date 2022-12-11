@@ -45,6 +45,7 @@ function ReportFormSection() {
     <form onSubmit={handleSubmit}>
       <StyledReportFormSection>
         <Dropdown
+          label="place"
           list={["hello", "I am", "Dropdown"]}
           setItem={setSelectedPlace}
         />

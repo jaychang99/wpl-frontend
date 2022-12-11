@@ -9,17 +9,20 @@ import {
 } from "components/common/Dropdown/styles";
 import CircleCheckIcon from "components/common/icons/CircleCheckIcon";
 import ExpandDownIcon from "components/common/icons/ExpandDownIcon";
+import { BoxLabel } from "components/common/Box";
 
 // 사용 예시
 //
 // <Dropdown list={["남성", "여성", "선택 안 함"]}></Dropdown>
 
 interface Props extends HTMLMotionProps<"div"> {
+  label?: string;
   list: string[];
   setItem: Dispatch<SetStateAction<string>>;
 }
 
 function Dropdown({
+  label,
   list,
   onSelect = (selected) => {},
   onChange,
@@ -30,6 +33,7 @@ function Dropdown({
   const [selected, setSelected] = useState("Select Place");
   return (
     <DropdownContainer {...props}>
+      {label && <BoxLabel>{label}</BoxLabel>}
       <SelectedLabel
         onClick={() => {
           setShowDropdown(!showDropdown);

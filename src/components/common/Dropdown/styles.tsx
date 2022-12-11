@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 export const DropdownContainer = styled(motion.div)`
   position: relative;
   width: 300px;
-  height: 56px;
   border-radius: 10px;
   background-color: ${({ theme }) => theme.color.white};
   cursor: pointer;
