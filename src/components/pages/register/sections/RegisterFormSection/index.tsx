@@ -1,14 +1,23 @@
 import { css } from "@emotion/react";
 import Button from "components/common/Button";
 import Input from "components/common/Input";
+import Modal from "components/common/Modal";
 import { StyledRegisterFormSection } from "components/pages/register/sections/RegisterFormSection/styles";
-import { FormEvent, useCallback } from "react";
+import { FormEvent, useCallback, useState } from "react";
 import { RegisterInputFields } from "types/inputs";
 import { serverAxios } from "utils/commonAxios";
+import { AxiosError } from "axios";
 
 function RegisterFormSection() {
+  const [showModal, setShowModal] = useState(false);
+  const [modalContent, setModalContent] = useState({
+    title: "",
+    content: "",
+  });
+
   const handleSubmit = useCallback((e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
     async function handleRegister() {
       const requestURL = "/auth/register";
 
@@ -26,52 +35,74 @@ function RegisterFormSection() {
           nickname: formElements?.nickname.value,
         };
 
-        serverAxios.post(requestURL, body, config).then(function (response) {
-          // on success of POST request
-          // register successful
-        });
+        serverAxios
+          .post(requestURL, body, config)
+          .then(function (response) {
+            // on success of POST request
+            // register successful
+          })
+          .catch((error) => {
+            setModalContent({
+              title: "Login Request Failed",
+              content: "Login Request Failed. Please contact the site owner",
+            });
+            setShowModal(true);
+          });
       } catch (e) {
-        console.log(e);
+        console.log("YEEE");
       }
     }
     handleRegister();
   }, []);
 
   return (
-    <form onSubmit={handleSubmit}>
-      <StyledRegisterFormSection>
-        <Input
-          type="email"
-          name="email"
-          label="email"
-          placeholder="Please input email"
-        />
-        <Input
-          type="password"
-          label="password"
-          name="password"
-          placeholder="Please input password"
-        />
-        <Input
-          type="password"
-          label="confirm password"
-          placeholder="Please confirm password"
-        />
-        <Input
-          name="nickname"
-          label="nickname"
-          placeholder="Please input nickname"
-        />
-        <Button
-          type="submit"
-          css={css`
-            margin-top: 30px;
-          `}
-        >
-          Register
-        </Button>
-      </StyledRegisterFormSection>
-    </form>
+    <>
+      <Modal
+        open={showModal}
+        onClose={() => {
+          setShowModal(false);
+        }}
+        title={modalContent.title}
+        buttons={<></>}
+        withCloseButton
+      >
+        {modalContent.content}
+      </Modal>
+      <form onSubmit={handleSubmit}>
+        <StyledRegisterFormSection>
+          <Input
+            type="email"
+            name="email"
+            label="email"
+            placeholder="Please input email"
+          />
+          <Input
+            type="password"
+            label="password"
+            name="password"
+            placeholder="Please input password"
+          />
+          <Input
+            type="password"
+            label="confirm password"
+            placeholder="Please confirm password"
+          />
+          <Input
+            name="nickname"
+            label="nickname"
+            placeholder="Please input nickname"
+          />
+          <Button
+            type="submit"
+            css={css`
+              margin-top: 30px;
+            `}
+          >
+            Register
+          </Button>
+        </StyledRegisterFormSection>
+      </form>
+    </>
   );
 }
 
