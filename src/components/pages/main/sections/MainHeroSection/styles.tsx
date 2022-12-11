@@ -12,4 +12,11 @@ export const StyledMainHeroSection = styled(motion.main)`
 
 export const MainHeroDescriptionText = styled(motion.div)`
   ${({ theme }) => typography(theme.color.primary500, 28, 400)}
+
+  ${({ theme }) => theme.device.container} {
+    ${({ theme }) => typography(theme.color.primary500, 24, 400)}
+  }
+  ${({ theme }) => theme.device.mobile} {
+    ${({ theme }) => typography(theme.color.primary500, 20, 400)}
+  }
 `;
