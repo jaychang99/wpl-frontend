@@ -55,6 +55,11 @@ export const PlaceLastUpdatedText = styled.div`
   ${({ theme }) => typography(theme.color.black700, 12, 400)}
   align-self: flex-end;
 `;
+export const PlaceLastContributorText = styled.div`
+  ${({ theme }) => typography(theme.color.primary500, 12, 700)}
+  align-self: flex-end;
+  display: inline;
+`;
 
 export const PlaceIndicatorContainer = styled.div`
   margin-top: 10px;

@@ -13,6 +13,7 @@ export const MOCKUP_PLACES_PAGE_1: PlacesApiResponse = {
       crowdness: 50, // between 0 and 100.
       facilities: [1, 2, 3],
       lastUpdated: new Date("2022-12-09T18:24:00"),
+      lastContributor: "HI",
     },
     {
       id: 2,
@@ -21,6 +22,7 @@ export const MOCKUP_PLACES_PAGE_1: PlacesApiResponse = {
       crowdness: 60, // between 0 and 100.
       facilities: [1, 3],
       lastUpdated: new Date("2022-12-08T15:24:00"),
+      lastContributor: "HELLO",
     },
   ],
 };

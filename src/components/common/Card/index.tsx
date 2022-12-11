@@ -7,6 +7,7 @@ import {
   PlaceCrowdnessContainer,
   PlaceFacilityContainer,
   PlaceIndicatorContainer,
+  PlaceLastContributorText,
   PlaceLastUpdatedText,
   PlaceNameText,
   StyledCard,
@@ -32,6 +33,7 @@ function Card({
   crowdness,
   facilities,
   lastUpdated,
+  lastContributor,
   ...props
 }: Props) {
   const imageCss = { objectFit: "cover" } as React.CSSProperties;
@@ -52,6 +54,12 @@ function Card({
           <PlaceNameText>{name}</PlaceNameText>
           <PlaceLastUpdatedText>
             Last updated: {new Date(lastUpdated).toLocaleString("en-US")}
+          </PlaceLastUpdatedText>
+          <PlaceLastUpdatedText>
+            Last updated by{" "}
+            <PlaceLastContributorText>
+              {lastContributor}
+            </PlaceLastContributorText>
           </PlaceLastUpdatedText>
         </PlaceBottonInfoTopContainer>
         <PlaceIndicatorContainer>

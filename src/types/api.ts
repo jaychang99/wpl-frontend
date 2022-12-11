@@ -14,6 +14,7 @@ export interface Place {
   crowdness: number; // between 0 and 1.
   facilities: number[]; // ex) 'wifi', 'charge', 'restroom' -> references constants/facilities.ts
   lastUpdated: Date;
+  lastContributor: string;
 }
 export interface User {
   nickname: string;
