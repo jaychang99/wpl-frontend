@@ -1,49 +1,51 @@
 import { css } from "@emotion/react";
 import Button from "components/common/Button";
 import Dropdown from "components/common/Dropdown";
-import Input from "components/common/Input";
 import { StyledReportFormSection } from "components/pages/report/sections/ReportFormSection/styles";
 import { CROWDEDNESS } from "constants/crowdedness";
 import usePlaces from "hooks/usePlaces";
 
-import { FormEvent, SetStateAction, useCallback, useState } from "react";
-import { ReportInputFields } from "types/inputs";
+import { FormEvent, useCallback, useState } from "react";
+import {
+  getIdOfPlaceName,
+  getNumberFromCrowdnessPercentage,
+} from "utils/apiPipes";
 import { serverAxios } from "utils/commonAxios";
+import { getCookie } from "utils/cookies";
 
 function ReportFormSection() {
   const [selectedPlace, setSelectedPlace] = useState("");
+  const [selectedCrowdedness, setselectedCrowdedness] = useState("");
 
   // fetch places info for dropdown
   const { placeNames, placeIds, error, mutate } = usePlaces();
 
-  const handleSubmit = useCallback((e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    async function handleReport() {
-      const requestURL = "/report";
+  const handleSubmit = useCallback(
+    (e: FormEvent<HTMLFormElement>) => {
+      e.preventDefault();
+      async function handleReport() {
+        const requestURL = "/places";
 
-      // the following is for the typescript compiler to be able to name if the inputs
-      const form = e.currentTarget;
-      const formElements = form
-        ? (form.elements as typeof form.elements & ReportInputFields)
-        : null;
+        try {
+          const token = getCookie("wts_web_token", document.cookie);
+          const config = { headers: { Authorization: `Bearer ${token}` } };
+          const body = {
+            placeId: getIdOfPlaceName(selectedPlace, placeNames, placeIds),
+            crowdness: getNumberFromCrowdnessPercentage(selectedCrowdedness),
+          };
 
-      try {
-        const config = {};
-        const body = {
-          email: formElements?.email.value,
-          password: formElements?.password.value,
-          nickname: formElements?.nickname.value,
-        };
-
-        serverAxios.post(requestURL, body, config).then(function (response) {
-          // on success of POST request
-        });
-      } catch (e) {
-        console.log(e);
+          serverAxios.patch(requestURL, body, config).then(function (response) {
+            // on success of POST request
+            console.log("REPORT GENERATED");
+          });
+        } catch (e) {
+          console.log(e);
+        }
       }
-    }
-    handleReport();
-  }, []);
+      handleReport();
+    },
+    [placeIds, placeNames, selectedCrowdedness, selectedPlace]
+  );
 
   return (
     <form onSubmit={handleSubmit}>
@@ -60,7 +62,7 @@ function ReportFormSection() {
           label="crowdedness"
           placeholder="Select Crowdedness"
           list={CROWDEDNESS}
-          setItem={setSelectedPlace}
+          setItem={setselectedCrowdedness}
         />
 
         <Button
