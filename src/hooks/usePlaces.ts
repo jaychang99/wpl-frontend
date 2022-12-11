@@ -13,8 +13,7 @@ function usePlaces() {
 
   const placeNames = extractFieldFromObject(data?.places, "name");
   const placeIds = extractFieldFromObject(data?.places, "id");
-  console.log(data);
-  console.log(placeNames, placeIds);
+
   return {
     placeNames: placeNames,
     placeIds: placeIds,
