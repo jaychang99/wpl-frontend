@@ -1,5 +1,7 @@
 import { useTheme } from "@emotion/react";
+import BottomSheet from "components/common/ButtomSheet";
 import MenuIcon from "components/common/icons/MenuIcon";
+import MobileMenu from "components/common/MobileMenu";
 import {
   NavbarContainer,
   NavbarLogoText,
@@ -27,6 +29,7 @@ interface Props extends HTMLAttributes<HTMLElement> {
 
 function Navbar({ nickname, ...props }: Props) {
   const [showMobileMenuOpen, setShowMobileMenuOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   // for responsive design
   const {
     size: { mobile },
@@ -41,7 +44,7 @@ function Navbar({ nickname, ...props }: Props) {
         setShowMobileMenuOpen(true);
       }
     }
-  }, [width, mobile, showMobileMenuOpen]);
+  }, [width, mobile, showMobileMenuOpen, setShowMobileMenuOpen]);
 
   const { scrollY } = useScrollPosition();
   const router = useRouter();
@@ -56,48 +59,62 @@ function Navbar({ nickname, ...props }: Props) {
   }, []);
 
   return (
-    <StyledNavbar transparent={scrollY === 0} {...props}>
-      <NavbarContainer>
-        <Link href="/">
-          <NavbarLogoText>WTS</NavbarLogoText>
-        </Link>
-
-        <NavbarMenuContainer>
-          <Link href={nickname ? "#" : "/login"}>
-            <NavbarMenuItem>
-              {nickname ? "Welcome, " + nickname : "Login"}
-            </NavbarMenuItem>
+    <>
+      <BottomSheet
+        isShowing={isOpen}
+        onClose={() => {
+          setIsOpen(!isOpen);
+        }}
+      >
+        Bottom Sheet
+      </BottomSheet>
+      <StyledNavbar transparent={scrollY === 0} {...props}>
+        <NavbarContainer>
+          <Link href="/">
+            <NavbarLogoText>WTS</NavbarLogoText>
           </Link>
-          {!showMobileMenuOpen && (
-            <>
-              {nickname && (
-                <Link href="/contribute">
-                  <NavbarMenuItem>Contribute</NavbarMenuItem>
+
+          <NavbarMenuContainer>
+            <Link href={nickname ? "#" : "/login"}>
+              <NavbarMenuItem>
+                {nickname ? "Welcome, " + nickname : "Login"}
+              </NavbarMenuItem>
+            </Link>
+            {!showMobileMenuOpen && (
+              <>
+                {nickname && (
+                  <Link href="/contribute">
+                    <NavbarMenuItem>Contribute</NavbarMenuItem>
+                  </Link>
+                )}
+                <Link href={nickname ? "#" : "/register"}>
+                  <NavbarMenuItem
+                    onClick={
+                      nickname
+                        ? handleLogout
+                        : () => {
+                            router.push("register");
+                          }
+                    }
+                  >
+                    {nickname ? "Logout" : "Register"}
+                  </NavbarMenuItem>
                 </Link>
-              )}
-              <Link href={nickname ? "#" : "/register"}>
-                <NavbarMenuItem
-                  onClick={
-                    nickname
-                      ? handleLogout
-                      : () => {
-                          router.push("register");
-                        }
-                  }
-                >
-                  {nickname ? "Logout" : "Register"}
-                </NavbarMenuItem>
-              </Link>
-            </>
-          )}
-          {showMobileMenuOpen && (
-            <NavbarMenuItem>
-              <MenuIcon />
-            </NavbarMenuItem>
-          )}
-        </NavbarMenuContainer>
-      </NavbarContainer>
-    </StyledNavbar>
+              </>
+            )}
+            {showMobileMenuOpen && (
+              <NavbarMenuItem
+                onClick={() => {
+                  setIsOpen(!isOpen);
+                }}
+              >
+                <MenuIcon />
+              </NavbarMenuItem>
+            )}
+          </NavbarMenuContainer>
+        </NavbarContainer>
+      </StyledNavbar>
+    </>
   );
 }
 

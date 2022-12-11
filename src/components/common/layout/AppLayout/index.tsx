@@ -2,6 +2,7 @@ import {
   Container,
   ContentBox,
 } from "components/common/layout/AppLayout/styles";
+import MobileMenu from "components/common/MobileMenu";
 import Navbar from "components/common/Navbar";
 
 import { ReactNode } from "react";
