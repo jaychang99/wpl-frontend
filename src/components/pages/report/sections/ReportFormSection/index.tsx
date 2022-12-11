@@ -4,6 +4,7 @@ import Dropdown from "components/common/Dropdown";
 import Input from "components/common/Input";
 import { StyledReportFormSection } from "components/pages/report/sections/ReportFormSection/styles";
 import { CROWDEDNESS } from "constants/crowdedness";
+import usePlaces from "hooks/usePlaces";
 
 import { FormEvent, SetStateAction, useCallback, useState } from "react";
 import { ReportInputFields } from "types/inputs";
@@ -11,6 +12,9 @@ import { serverAxios } from "utils/commonAxios";
 
 function ReportFormSection() {
   const [selectedPlace, setSelectedPlace] = useState("");
+
+  // fetch places info for dropdown
+  const { placeNames, placeIds, error, mutate } = usePlaces();
 
   const handleSubmit = useCallback((e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -48,7 +52,7 @@ function ReportFormSection() {
           stackingOrder={1}
           label="place"
           placeholder="Select Place"
-          list={["hello", "I am", "Dropdown"]}
+          list={placeNames}
           setItem={setSelectedPlace}
         />
         <Dropdown
