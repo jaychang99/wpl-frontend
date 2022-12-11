@@ -33,8 +33,6 @@ function ReportFormSection() {
 
         serverAxios.post(requestURL, body, config).then(function (response) {
           // on success of POST request
-          console.log("REGISTER SUCCESSFUL");
-          console.log(response.data);
         });
       } catch (e) {
         console.log(e);

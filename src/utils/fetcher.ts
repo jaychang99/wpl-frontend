@@ -17,7 +17,6 @@ export async function fetcher<T>(url: string) {
 
 export async function authFetcher<T>(url: string, cookies?: string) {
   const token = getCookie("wts_web_token", cookies);
-  console.log("authFetcher TOKEN", token);
   if (!token || token === "") {
     const error = new CustomError(401, "Not Authorized");
     throw error;

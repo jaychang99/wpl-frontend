@@ -29,9 +29,8 @@ function LoginFormSection() {
 
         serverAxios.post(requestURL, body, config).then(function (response) {
           // on success of POST request
-          console.log("LOGIN SUCCESSFUL");
+          // on login success
           router.push("/");
-          console.log(response.data);
           setCookie("wts_web_token", response.data.access_token, 1);
         });
       } catch (e) {

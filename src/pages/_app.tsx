@@ -20,31 +20,4 @@ function MyApp({ Component, pageProps }: AppProps) {
   );
 }
 
-// MyApp.getInitialProps = async ({ res, req, err, ...rest }: NextPageContext) => {
-//   const cookies = req?.headers.cookie;
-//   console.log(req);
-//   console.log("COOKIES", cookies);
-//   const requestURL = "/users/me";
-//   try {
-//     const { nickname: nickname } = await authFetcher<User>(requestURL, cookies);
-//     console.log("SUCCESS");
-//     return {
-//       props: {
-//         nickname,
-//       },
-//     };
-//   } catch (err) {
-//     // console.log("FAIL");
-//     console.log(err);
-//     const { title, statusCode } = getServerAxiosErrorInfo(err);
-
-//     return {
-//       props: {
-//         error: { title, statusCode },
-//         data: {},
-//       },
-//     };
-//   }
-// };
-
 export default MyApp;

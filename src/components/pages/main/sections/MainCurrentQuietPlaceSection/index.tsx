@@ -10,7 +10,7 @@ import { Place } from "types/api";
 
 function MainCurrentQuietPlaceSection() {
   const places = usePlacesContext() as any; // TODO: remove type assertion
-  console.log("PLACES", places);
+
   return (
     <StyledMainCurrentQuietPlaceSection>
       <Typography size={"h2"}>Currently Quiet Places</Typography>

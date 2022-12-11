@@ -34,7 +34,6 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const config = {};
   try {
     const { data: places } = await serverAxios.get<Place[]>(requestURL, config);
-    console.log("-----", places);
     if (nickname) {
       return {
         props: {

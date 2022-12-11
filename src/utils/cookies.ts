@@ -1,4 +1,3 @@
-import { COOKIE_NAME_PRERENDER_BYPASS } from "next/dist/server/api-utils";
 import { isBrowser } from "utils/browser";
 
 // code from https://stackoverflow.com/questions/14573223/set-cookie-and-get-cookie-with-javascript
@@ -16,12 +15,9 @@ export function setCookie(name: string, value: string, days: number) {
 export function getCookie(c_name: string, cookies?: string) {
   let ca = null;
   if (isBrowser()) {
-    console.log("\n\nis browswer\n\n");
     ca = document.cookie;
   } else {
-    console.log("\n\nis not browswer\n\n");
     if (cookies == null) {
-      console.log("\n\ncookie is null\n\n");
       return null;
     } else ca = cookies;
   }
