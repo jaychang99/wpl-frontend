@@ -28,3 +28,13 @@ export const StyledInput = styled.input`
     color: ${({ theme }) => theme.color.black500};
   }
 `;
+
+export const InputAlertMessage = styled.div`
+  margin-top: 10px;
+  font-size: 12px;
+  color: ${({ theme }) => theme.color.warning};
+  max-width: 300px;
+  display: flex;
+  align-items: center;
+  column-gap: 3px;
+`;

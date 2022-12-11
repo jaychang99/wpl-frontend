@@ -3,12 +3,14 @@ import Button from "components/common/Button";
 import Input from "components/common/Input";
 import Modal from "components/common/Modal";
 import { StyledRegisterFormSection } from "components/pages/register/sections/RegisterFormSection/styles";
-import { FormEvent, useCallback, useState } from "react";
+import { FormEvent, useCallback, useRef, useState } from "react";
 import { RegisterInputFields } from "types/inputs";
 import { serverAxios } from "utils/commonAxios";
 import { AxiosError } from "axios";
 
 function RegisterFormSection() {
+  const originalPasswordRef = useRef("");
+
   const [showModal, setShowModal] = useState(false);
   const [modalContent, setModalContent] = useState({
     title: "",
@@ -75,22 +77,26 @@ function RegisterFormSection() {
             name="email"
             label="email"
             placeholder="Please input email"
+            validationPipe="email"
           />
           <Input
             type="password"
             label="password"
             name="password"
             placeholder="Please input password"
+            validationPipe="password"
           />
           <Input
             type="password"
             label="confirm password"
             placeholder="Please confirm password"
+            validationPipe="passwordConfirm"
           />
           <Input
             name="nickname"
             label="nickname"
             placeholder="Please input nickname"
+            validationPipe="nickname"
           />
           <Button
             type="submit"
