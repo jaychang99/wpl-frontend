@@ -1,12 +1,15 @@
 import { css } from "@emotion/react";
 import Button from "components/common/Button";
+import Dropdown from "components/common/Dropdown";
 import Input from "components/common/Input";
 import { StyledReportFormSection } from "components/pages/report/sections/ReportFormSection/styles";
-import { FormEvent, useCallback } from "react";
+import { FormEvent, SetStateAction, useCallback, useState } from "react";
 import { ReportInputFields } from "types/inputs";
 import { serverAxios } from "utils/commonAxios";
 
 function ReportFormSection() {
+  const [selectedPlace, setSelectedPlace] = useState("");
+
   const handleSubmit = useCallback((e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     async function handleReport() {
@@ -41,6 +44,10 @@ function ReportFormSection() {
   return (
     <form onSubmit={handleSubmit}>
       <StyledReportFormSection>
+        <Dropdown
+          list={["hello", "I am", "Dropdown"]}
+          setItem={setSelectedPlace}
+        />
         <Input
           type="email"
           name="email"
