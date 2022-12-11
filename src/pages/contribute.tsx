@@ -6,7 +6,7 @@ import type { GetServerSideProps, NextPage } from "next";
 import { getServerAxiosErrorInfo, serverAxios } from "utils/commonAxios";
 import getNavbarServerSideProps from "utils/getServerSideProps";
 
-const Report: NextPage = () => {
+const Contribute: NextPage = () => {
   return (
     <PageLayout type="default">
       <ReportHeaderSection />
@@ -55,4 +55,4 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
   }
 };
 
-export default Report;
+export default Contribute;
