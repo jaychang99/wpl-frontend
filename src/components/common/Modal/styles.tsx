@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { motion } from "framer-motion";
 import { resetButtonStyle } from "styles/utils/button";
 import { hexToRgba } from "styles/utils/color";
 import { customScrollbar } from "styles/utils/customScrollbar";
@@ -6,7 +7,7 @@ import { flexCenterStyle } from "styles/utils/layout";
 
 const PADDING = 20;
 
-export const DimmedArea = styled.div`
+export const DimmedArea = styled(motion.div)`
   position: fixed;
   top: 0;
   left: 0;
@@ -23,7 +24,7 @@ export const DimmedArea = styled.div`
   z-index: 1000;
 `;
 
-export const ModalContainer = styled.div`
+export const ModalContainer = styled(motion.div)`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -46,7 +47,7 @@ export const TitleContainer = styled.div`
 
   padding: ${PADDING}px 0;
   border-bottom: 1px solid ${({ theme }) => theme.color.black300};
-  color: ${({ theme }) => theme.color.primary500};
+  color: ${({ theme }) => theme.color.warning};
   font-weight: 700;
   font-size: 18px;
 `;

@@ -12,6 +12,9 @@ export const staggerOne: Variants = {
 export const staggerHalf: Variants = {
   animate: { transition: { staggerChildren: STAGGER_CHILDREN_ONE / 2 } },
 };
+export const staggerQuarter: Variants = {
+  animate: { transition: { staggerChildren: STAGGER_CHILDREN_ONE / 4 } },
+};
 
 export const defaultFadeInVariants: Variants = {
   initial: {
@@ -56,19 +59,19 @@ export const defaultFadeInScaleVariants: Variants = {
   initial: {
     opacity: 0,
     scale: 0.85,
-    transition: { duration: FADE_IN_DURATION, ease: defaultEasing },
+    transition: { duration: 0.3 },
     willChange: "opacity, transform",
   },
   animate: {
     opacity: 1,
     scale: 1,
-    transition: { duration: FADE_IN_DURATION, ease: defaultEasing },
+    transition: { duration: 0.3 },
     willChange: "opacity, transform",
   },
   exit: {
     opacity: 0,
     scale: 0.85,
-    transition: { duration: FADE_IN_DURATION, ease: defaultEasing },
+    transition: { duration: 0.3 },
     willChange: "opacity, transform",
   },
 };

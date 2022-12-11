@@ -87,7 +87,7 @@ export const theme: Theme = {
     black100: "#F2F2F2",
     white: "#FFFFFF",
 
-    warning: "#FFA935",
+    warning: "#CC4F00",
   },
   fontWeight: {
     strong: 900,

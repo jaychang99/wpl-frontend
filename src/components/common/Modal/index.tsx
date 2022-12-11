@@ -10,16 +10,26 @@ import {
   TitleContainer,
 } from "components/common/Modal/styles";
 import { PORTAL_ID } from "constants/portal";
+import { HTMLMotionProps } from "framer-motion";
 import usePreventScroll from "hooks/usePreventScroll";
 import { HTMLAttributes, ReactNode, useEffect, useState } from "react";
 import { createPortal } from "react-dom";
+import {
+  defaultFadeInUpVariants,
+  staggerHalf,
+  staggerOne,
+} from "styles/motions";
+import {
+  defaultFadeInScaleVariants,
+  staggerQuarter,
+} from "styles/motions/motions";
 
 function ScrollPreventer() {
   usePreventScroll();
   return null;
 }
 
-interface Props extends Omit<HTMLAttributes<HTMLDivElement>, "title"> {
+interface Props extends Omit<HTMLMotionProps<"div">, "title"> {
   open: boolean;
   onClose: () => void;
   title: ReactNode;
@@ -57,8 +67,12 @@ function Modal({
                 onClose();
               }
             }}
+            variants={staggerQuarter}
+            initial="initial"
+            whileInView="animate"
+            exit="exit"
           >
-            <ModalContainer {...props}>
+            <ModalContainer variants={defaultFadeInScaleVariants} {...props}>
               <TitleContainer>
                 {title}
                 <CloseButton onClick={onClose}>
