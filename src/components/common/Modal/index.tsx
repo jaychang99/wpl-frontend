@@ -7,7 +7,6 @@ import {
   ContentContainer,
   DimmedArea,
   ModalContainer,
-  Title,
   TitleContainer,
 } from "components/common/Modal/styles";
 import { PORTAL_ID } from "constants/portal";
@@ -71,7 +70,7 @@ function Modal({
                 <>
                   {withCloseButton && (
                     <Button size="small" filled={false} onClick={onClose}>
-                      Cancle
+                      OK
                     </Button>
                   )}
                   {buttons}
@@ -90,7 +89,5 @@ function Modal({
     return null;
   }
 }
-
-Modal.Title = Title;
 
 export default Modal;

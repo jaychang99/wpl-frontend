@@ -34,7 +34,7 @@ export const ModalContainer = styled.div`
   padding: 0 ${PADDING}px;
 
   background-color: white;
-  border-radius: 10px;
+  border-radius: 20px;
   box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.25);
   overflow: hidden;
 `;
@@ -46,12 +46,9 @@ export const TitleContainer = styled.div`
 
   padding: ${PADDING}px 0;
   border-bottom: 1px solid ${({ theme }) => theme.color.black300};
-`;
-
-export const Title = styled.h4`
+  color: ${({ theme }) => theme.color.primary500};
   font-weight: 700;
   font-size: 18px;
-  color: ${({ theme }) => theme.color.black900};
 `;
 
 export const CloseButton = styled.button`

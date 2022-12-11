@@ -14,6 +14,7 @@ const sizeStyle = (theme: Theme, size: Props["size"]) => css`
     /* width: 100px; */
     height: 36px;
     font-size: 12px;
+    padding: 0 20px;
   `}
 `;
 
